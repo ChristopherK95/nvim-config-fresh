@@ -1,0 +1,24 @@
+local opts = function()
+	local wk = require("which-key")
+	wk.register({
+		f = {
+			name = "Files",
+			f = { "<cmd>FzfLua files<CR>", "find files" },
+			g = { "<cmd>FzfLua live_grep<CR>", "live grep" },
+			e = { "<cmd>Oil --float<CR>", "file explorer" },
+		},
+		g = {
+			name = "Git",
+			b = { ":FzfLua git_branches<cr>", "branches" },
+			s = { ":FzfLua git_status<cr>", "status" },
+			f = { ":FzfLua git_bcommits<cr>", "file commits" },
+			p = { ":Gitsigns preview_hunk_inline<cr>", "Show changes" },
+			g = { ":Gitsigns blame_line<cr>", "Show git blame" },
+		},
+	}, { prefix = "<leader>" })
+end
+
+return {
+	"folke/which-key.nvim",
+	opts = opts,
+}

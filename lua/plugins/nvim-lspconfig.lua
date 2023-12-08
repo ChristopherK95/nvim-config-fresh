@@ -26,7 +26,8 @@ local config = function()
 		vim.keymap.set("n", "<leader>lo", "<cmd>LSoutlineToggle<CR>", opts)
 	end
 
-	local capabilities = cmp_nvim_lsp.default_capabilities()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+	capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 	-- Lua
 	lspconfig.lua_ls.setup({

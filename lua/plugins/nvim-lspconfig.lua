@@ -9,7 +9,7 @@ local config = function()
 		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 	end
 
-	local on_attach = function(client, bufnr)
+	local on_attach = function(_, bufnr)
 		local opts = { noremap = true, silent = true, buffer = bufnr }
 
 		vim.keymap.set("n", "gr", "<cmd>FzfLua lsp_references<CR>", opts)
@@ -19,11 +19,8 @@ local config = function()
 		vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
 		vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
 		vim.keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
-		vim.keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
-		vim.keymap.set("n", "<leader>pd", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-		vim.keymap.set("n", "<leader>nd", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+		vim.keymap.set("n", "<C-d>", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
 		vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-		vim.keymap.set("n", "<leader>lo", "<cmd>LSoutlineToggle<CR>", opts)
 	end
 
   local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -59,33 +56,33 @@ local config = function()
 		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "git"),
 	})
 
-	local luacheck = require("efmls-configs.linters.luacheck")
-	local stylua = require("efmls-configs.formatters.stylua")
-	local eslint_d = require("efmls-configs.linters.eslint_d")
-	local prettier_d = require("efmls-configs.formatters.prettier_d")
-
-	lspconfig.efm.setup({
-		filetypes = {
-			"lua",
-			"typescript",
-			"typescriptreact",
-		},
-		init_options = {
-			documentFormatting = true,
-			documentRangeFormatting = true,
-			hover = true,
-			documentSymbol = true,
-			codeAction = true,
-			completion = true,
-		},
-		settings = {
-			languages = {
-				lua = { luacheck, stylua },
-				typescript = { eslint_d, prettier_d },
-				typescriptreact = { eslint_d, prettier_d },
-			},
-		},
-	})
+	-- local luacheck = require("efmls-configs.linters.luacheck")
+	-- local stylua = require("efmls-configs.formatters.stylua")
+	-- local eslint_d = require("efmls-configs.linters.eslint_d")
+	-- local prettier_d = require("efmls-configs.formatters.prettier_d")
+	--
+	-- lspconfig.efm.setup({
+	-- 	filetypes = {
+	-- 		"lua",
+	-- 		"typescript",
+	-- 		"typescriptreact",
+	-- 	},
+	-- 	init_options = {
+	-- 		documentFormatting = true,
+	-- 		documentRangeFormatting = true,
+	-- 		hover = true,
+	-- 		documentSymbol = true,
+	-- 		codeAction = true,
+	-- 		completion = true,
+	-- 	},
+	-- 	settings = {
+	-- 		languages = {
+	-- 			lua = { luacheck, stylua },
+	-- 			typescript = { eslint_d, prettier_d },
+	-- 			typescriptreact = { eslint_d, prettier_d },
+	-- 		},
+	-- 	},
+	-- })
 end
 
 return {

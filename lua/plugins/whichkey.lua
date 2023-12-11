@@ -16,6 +16,21 @@ local opts = function()
 			p = { ":Gitsigns preview_hunk_inline<cr>", "Show changes" },
 			g = { ":Gitsigns blame_line<cr>", "Show git blame" },
 		},
+		d = {
+			"Diagnostics",
+			["<Right>"] = {
+				function()
+					vim.diagnostic.goto_next()
+				end,
+				"next",
+			},
+			["<Left>"] = {
+				function()
+					vim.diagnostic.goto_prev()
+				end,
+				"prev",
+			},
+		},
 	}, { prefix = "<leader>" })
 end
 

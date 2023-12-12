@@ -7,7 +7,7 @@ keymap.set("v", ">", ">gv")
 vim.api.nvim_set_keymap("n", "<C-_>", "gcc", { noremap = false })
 vim.api.nvim_set_keymap("v", "<C-_>", "gcc", { noremap = false })
 
-vim.api.nvim_set_keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = false })
+vim.api.nvim_set_keymap("n", "<C-f>", "<cmd>GuardFmt<CR>", { noremap = false })
 vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>q<CR>", { noremap = false })
 
 -- Window splits

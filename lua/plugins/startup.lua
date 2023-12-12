@@ -46,7 +46,7 @@ local settings = {
 		margin = 5,
 		content = {
 			{ " Find File", "FzfLua files", "ff" },
-			{ "󰍉 Find Word", "FzfLua live_grep", "fg" },
+			{ " Find Word", "FzfLua live_grep", "fg" },
 			{ " Recent Files", "FzfLua oldfiles", "fo" },
 			{ " File Browser", "Oil", "fe" },
 			{ " New File", "lua require'startup'.new_file()", "nf" },

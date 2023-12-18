@@ -10,6 +10,7 @@ local config = function()
 	end
 
 	local on_attach = function(_, bufnr)
+		print(bufnr)
 		local opts = { noremap = true, silent = true, buffer = bufnr }
 
 		vim.keymap.set("n", "gr", "<cmd>FzfLua lsp_references<CR>", opts)
@@ -23,7 +24,7 @@ local config = function()
 		vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
 	end
 
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
+	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 	-- Lua
@@ -54,6 +55,26 @@ local config = function()
 			"typescriptreact",
 		},
 		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "git"),
+	})
+
+	-- JSON
+	lspconfig.jsonls.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+		filetypes = {
+			"json",
+			"jsonc",
+		},
+	})
+
+	-- CSS
+	lspconfig.cssls.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+		filetypes = {
+			"css",
+			"scss",
+		},
 	})
 
 	-- local luacheck = require("efmls-configs.linters.luacheck")

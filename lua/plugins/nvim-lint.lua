@@ -7,6 +7,8 @@ return {
 	config = function()
 		local lint = require("lint")
 		local table = {
+			javascript = "eslint_d",
+			javascriptreact = "eslint_d",
 			typescript = "eslint_d",
 			typescriptreact = "eslint_d",
 			lua = "luacheck",

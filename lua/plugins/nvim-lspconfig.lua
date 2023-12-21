@@ -10,7 +10,6 @@ local config = function()
 	end
 
 	local on_attach = function(_, bufnr)
-		print(bufnr)
 		local opts = { noremap = true, silent = true, buffer = bufnr }
 
 		vim.keymap.set("n", "gr", "<cmd>FzfLua lsp_references<CR>", opts)
@@ -51,6 +50,8 @@ local config = function()
 		on_attach = on_attach,
 		capabilities = capabilities,
 		filetypes = {
+			"javascript",
+			"javascriptreact",
 			"typescript",
 			"typescriptreact",
 		},

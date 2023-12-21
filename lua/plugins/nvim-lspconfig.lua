@@ -17,7 +17,7 @@ local config = function()
 		vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 		vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 		vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
-		vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts)
+		vim.keymap.set("n", "<leader>cr", "<cmd>Lspsaga rename<CR>", opts)
 		vim.keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 		vim.keymap.set("n", "<C-d>", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
 		vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
@@ -45,7 +45,7 @@ local config = function()
 		},
 	})
 
-	-- Typescript
+	-- Typescript/Javascript
 	lspconfig.tsserver.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
@@ -78,33 +78,14 @@ local config = function()
 		},
 	})
 
-	-- local luacheck = require("efmls-configs.linters.luacheck")
-	-- local stylua = require("efmls-configs.formatters.stylua")
-	-- local eslint_d = require("efmls-configs.linters.eslint_d")
-	-- local prettier_d = require("efmls-configs.formatters.prettier_d")
-	--
-	-- lspconfig.efm.setup({
-	-- 	filetypes = {
-	-- 		"lua",
-	-- 		"typescript",
-	-- 		"typescriptreact",
-	-- 	},
-	-- 	init_options = {
-	-- 		documentFormatting = true,
-	-- 		documentRangeFormatting = true,
-	-- 		hover = true,
-	-- 		documentSymbol = true,
-	-- 		codeAction = true,
-	-- 		completion = true,
-	-- 	},
-	-- 	settings = {
-	-- 		languages = {
-	-- 			lua = { luacheck, stylua },
-	-- 			typescript = { eslint_d, prettier_d },
-	-- 			typescriptreact = { eslint_d, prettier_d },
-	-- 		},
-	-- 	},
-	-- })
+	-- Bash
+	lspconfig.bashls.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+		filetypes = {
+			"sh",
+		},
+	})
 end
 
 return {

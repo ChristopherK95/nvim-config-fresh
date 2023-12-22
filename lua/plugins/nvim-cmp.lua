@@ -63,8 +63,8 @@ return {
 				},
 			},
 			mapping = cmp.mapping.preset.insert({
-				["<C-Down>"] = cmp.mapping.select_prev_item(),
-				["<C-Up>"] = cmp.mapping.select_next_item(),
+				["<C-Up>"] = cmp.mapping.select_prev_item(),
+				["<C-Down>"] = cmp.mapping.select_next_item(),
 				["<PageUp>"] = cmp.mapping.scroll_docs(-4),
 				["<PageDown>"] = cmp.mapping.scroll_docs(4),
 				["<C-Space>"] = cmp.mapping.complete(),

@@ -12,6 +12,7 @@ return {
 			typescript = "eslint_d",
 			typescriptreact = "eslint_d",
 			lua = "luacheck",
+			json = "jsonlint",
 		}
 
 		lint.linter_by_ft = table

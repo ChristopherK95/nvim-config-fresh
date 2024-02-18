@@ -45,6 +45,14 @@ local config = function()
 		},
 	})
 
+  lspconfig.csharp_ls.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+    filetypes = {
+      "cs"
+    }
+  })
+
 	-- Typescript/Javascript
 	lspconfig.tsserver.setup({
 		on_attach = on_attach,
@@ -56,6 +64,24 @@ local config = function()
 			"typescriptreact",
 		},
 		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "git"),
+	})
+  
+	-- Rust
+	lspconfig.rust_analyzer.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+		filetypes = {
+			"rs",
+			"rust",
+		},
+		root_dir = lspconfig.util.root_pattern("Cargo.toml"),
+    settings = {
+      ['rust-analyzer'] = {
+        cargo = {
+          allFeatures = true
+        }
+      }
+    }
 	})
 
 	-- JSON

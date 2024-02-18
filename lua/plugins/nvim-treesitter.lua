@@ -9,7 +9,6 @@ local config = function()
     ensure_installed = {
       'javascript',
       'typescript',
-      'yaml',
       'json',
       'lua',
       'gitignore',

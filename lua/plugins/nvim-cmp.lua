@@ -4,7 +4,7 @@ local kind_icons = {
 	Function = "󰊕",
 	Constructor = "",
 	Field = "󰇽",
-	Variable = "󰂡",
+	Variable = "",
 	Class = "󰠱",
 	Interface = "",
 	Module = "",
@@ -26,20 +26,6 @@ local kind_icons = {
 	TypeParameter = "󰅲",
 }
 
-
-local function border(hl_name)
-	return {
-		{ "┌", hl_name },
-		{ "─", hl_name },
-		{ "┐", hl_name },
-		{ "│", hl_name },
-		{ "┘", hl_name },
-		{ "─", hl_name },
-		{ "└", hl_name },
-		{ "│", hl_name },
-	}
-end
-
 return {
 	"hrsh7th/nvim-cmp",
 	config = function()
@@ -58,8 +44,9 @@ return {
 			},
 			window = {
 				completion = {
-					border = border(""),
-					winhighlight = "Normal:Normal,CursorLine:PmenuSel,Search:None",
+          border = 'rounded',
+          side_padding = 1,
+					winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:CmpSel,Search:None",
 				},
 			},
 			mapping = cmp.mapping.preset.insert({
@@ -74,18 +61,14 @@ return {
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
-				{ name = "buffer" },
+				-- { name = "buffer" },
 				{ name = "path" },
 			}),
 			formatting = {
-				fields = { "kind", "abbr" },
-				format = function(entry, vim_item)
+				fields = { "abbr", "kind" },
+				format = function(_, vim_item)
 					vim_item.abbr = vim_item.abbr
-					vim_item.kind = (kind_icons[vim_item.kind] or "Foo") .. " |"
-					vim_item.menu = ({
-						buffer = "[Buffer]",
-						nvim_lsp = "[LSP]",
-					})[entry.source.name]
+					vim_item.kind = (kind_icons[vim_item.kind] or "Foo") .. " " .. vim_item.kind
 					return vim_item
 				end,
 			},

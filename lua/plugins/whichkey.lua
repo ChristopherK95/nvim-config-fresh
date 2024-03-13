@@ -6,7 +6,8 @@ local opts = function()
 			f = { "<cmd>FzfLua files<CR>", "find files" },
 			g = { "<cmd>FzfLua live_grep<CR>", "live grep" },
 			e = { "<cmd>Oil --float<CR>", "file explorer" },
-			b = { "<cmd>FzfLua buffers<CR>", "file explorer" },
+			b = { "<cmd>FzfLua buffers<CR>", "buffers" },
+			o = { "<cmd>FzfLua oldfiles<CR>", "recent files" },
 		},
 		g = {
 			name = "Git",

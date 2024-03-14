@@ -10,7 +10,8 @@ local config = function()
 		options = {
 			theme = "catppuccin",
 			globalstatus = true,
-			component_separators = "",
+			component_separators = { left = "", right = "" },
+			section_separators = { left = "", right = "" },
 		},
 		sections = {
 			lualine_a = {
@@ -22,11 +23,6 @@ local config = function()
 				"branch",
 				{
 					"diff",
-					-- diff_color = {
-					-- 	added = "LuaLineDiffAdd", -- Changes the diff's added color
-					-- 	modified = "LuaLineDiffChange", -- Changes the diff's modified color
-					-- 	removed = "LuaLineDiffDelete", -- Changes the diff's removed color you
-					-- },
 					symbols = { added = " ", modified = " ", removed = " " },
 				},
 				"diagnostics",

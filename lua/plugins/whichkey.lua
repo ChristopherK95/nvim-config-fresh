@@ -8,14 +8,15 @@ local opts = function()
 			e = { "<cmd>Oil --float<CR>", "file explorer" },
 			b = { "<cmd>FzfLua buffers<CR>", "buffers" },
 			o = { "<cmd>FzfLua oldfiles<CR>", "recent files" },
+			u = { ":UndotreeToggle<cr>", "undo tree" },
 		},
 		g = {
 			name = "Git",
 			b = { ":FzfLua git_branches<cr>", "branches" },
 			s = { ":FzfLua git_status<cr>", "status" },
 			f = { ":FzfLua git_bcommits<cr>", "file commits" },
-			p = { ":Gitsigns preview_hunk_inline<cr>", "Show changes" },
-			g = { ":Gitsigns blame_line<cr>", "Show git blame" },
+			p = { ":Gitsigns preview_hunk_inline<cr>", "show changes" },
+			g = { ":Gitsigns blame_line<cr>", "show git blame" },
 		},
 		d = {
 			"Diagnostics",
@@ -37,6 +38,6 @@ end
 
 return {
 	"folke/which-key.nvim",
-  lazy = false,
+	lazy = false,
 	opts = opts,
 }

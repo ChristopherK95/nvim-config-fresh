@@ -11,4 +11,7 @@ vim.api.nvim_set_hl(0, "FzfLuaColorsPrompt", { fg = "#a988b0", bg = nil })
 
 vim.api.nvim_set_hl(0, "CmpNormal", { fg = "#cdd6f4", bg = "#181826" })
 vim.api.nvim_set_hl(0, "CmpBorder", { fg = "#181826", bg = "#181826" })
+vim.api.nvim_set_hl(0, "CmpBorder", { fg = "#ffffff", bg = "#181826" })
 vim.api.nvim_set_hl(0, "CmpSel", { fg = "#000000", bg = "#a6e3a2" })
+
+

@@ -44,8 +44,13 @@ return {
 			},
 			window = {
 				completion = {
-          border = 'rounded',
-          side_padding = 1,
+					border = "single",
+					side_padding = 1,
+					winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:CmpSel,Search:None",
+				},
+				documentation = {
+					border = "single",
+					side_padding = 1,
 					winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:CmpSel,Search:None",
 				},
 			},

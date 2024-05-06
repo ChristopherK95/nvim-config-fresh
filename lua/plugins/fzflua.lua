@@ -1,11 +1,14 @@
 return {
 	"ibhagwan/fzf-lua",
-  lazy = false,
+	lazy = false,
 	-- optional for icon support
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		-- calling `setup` is optional for customization
 		require("fzf-lua").setup({
+			defaults = {
+				formatter = "path.filename_first",
+			},
 			file_ignore_patterns = { "%.svg$" },
 			winopts = {
 				border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
@@ -24,7 +27,7 @@ return {
 			},
 			files = {
 				prompt = "Files ❯ ",
-        cwd_prompt = false,
+				cwd_prompt = false,
 				winopts = {
 					title = { { " " .. "Files" .. " ", "FzfLuaTitle" } },
 					title_pos = "center",

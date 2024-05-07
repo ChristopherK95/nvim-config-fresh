@@ -14,4 +14,4 @@ vim.api.nvim_set_hl(0, "CmpBorder", { fg = "#181826", bg = "#181826" })
 vim.api.nvim_set_hl(0, "CmpBorder", { fg = "#ffffff", bg = "#181826" })
 vim.api.nvim_set_hl(0, "CmpSel", { fg = "#000000", bg = "#a6e3a2" })
 
-
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#c8a6ff" })

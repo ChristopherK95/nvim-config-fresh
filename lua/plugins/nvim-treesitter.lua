@@ -3,9 +3,6 @@ local config = function()
     indent = {
       enable = true,
     },
-    autotag = {
-      enable = true,
-    },
     ensure_installed = {
       'javascript',
       'typescript',

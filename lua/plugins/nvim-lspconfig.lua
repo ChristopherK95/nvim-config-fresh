@@ -22,6 +22,7 @@ local config = function()
 		vim.keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 		vim.keymap.set("n", "<C-d>", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
 		vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
+		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
 	end
 
 	local capabilities = vim.lsp.protocol.make_client_capabilities()

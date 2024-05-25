@@ -28,6 +28,15 @@ local config = function()
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
+	-- Go
+	lspconfig.gopls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		filetypes = {
+			"go",
+		},
+	})
+
 	-- Rust
 	lspconfig.rust_analyzer.setup({
 		capabilities = capabilities,

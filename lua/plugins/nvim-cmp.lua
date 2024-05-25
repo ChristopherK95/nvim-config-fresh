@@ -44,12 +44,12 @@ return {
 			},
 			window = {
 				completion = {
-					border = "single",
+					border = "none",
 					side_padding = 1,
 					winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:CmpSel,Search:None",
 				},
 				documentation = {
-					border = "single",
+					border = "none",
 					side_padding = 1,
 					winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:CmpSel,Search:None",
 				},
@@ -73,7 +73,7 @@ return {
 				fields = { "abbr", "kind" },
 				format = function(_, vim_item)
 					vim_item.abbr = vim_item.abbr
-					vim_item.kind = (kind_icons[vim_item.kind] or "Foo") .. " " .. vim_item.kind
+					vim_item.kind = (kind_icons[vim_item.kind] or "Foo") .. " " .. (vim_item.kind or "")
 					return vim_item
 				end,
 			},

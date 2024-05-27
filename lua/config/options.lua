@@ -40,7 +40,7 @@ opt.iskeyword:append("-")
 opt.mouse:append("a")
 opt.clipboard:append("unnamedplus")
 opt.modifiable = true
-opt.guicursor = { "n-v-c:block", "i:ver25" }
+opt.guicursor = { "n-v-c-i:block" }
 opt.encoding = "UTF-8"
 
 vim.diagnostic.config({ virtual_text = false })

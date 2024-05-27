@@ -22,7 +22,7 @@ local config = function()
 		vim.keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 		vim.keymap.set("n", "<C-d>", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
 		vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+		vim.lsp.inlay_hint.enable(false)
 	end
 
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -32,6 +32,15 @@ local config = function()
 	lspconfig.gopls.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
+		settings = {
+			gopls = {
+				["ui.inlayhint.hints"] = {
+					compositeLiteralFields = true,
+					constantValues = true,
+					parameterNames = true,
+				},
+			},
+		},
 		filetypes = {
 			"go",
 		},
@@ -66,6 +75,18 @@ local config = function()
 	lspconfig.tsserver.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
+		init_options = {
+			preferences = {
+				includeInlayParameterNameHints = "all",
+				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHints = true,
+				includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayEnumMemberValueHints = true,
+			},
+		},
 		filetypes = {
 			"javascript",
 			"javascriptreact",
@@ -109,6 +130,11 @@ return {
 	"neovim/nvim-lspconfig",
 	config = config,
 	lazy = false,
+	opt = {
+		inlay_hints = {
+			enabled = true,
+		},
+	},
 	dependencies = {
 		"windwp/nvim-autopairs",
 		"williamboman/mason.nvim",

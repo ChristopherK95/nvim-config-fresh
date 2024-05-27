@@ -18,6 +18,16 @@ local opts = function()
 			p = { ":Gitsigns preview_hunk_inline<cr>", "show changes" },
 			g = { ":Gitsigns blame_line<cr>", "show git blame" },
 		},
+		l = {
+			name = "Lsp",
+			h = {
+				function()
+					local enabled = vim.lsp.inlay_hint.is_enabled({})
+					vim.lsp.inlay_hint.enable(not enabled)
+				end,
+				"toggle inlay hints",
+			},
+		},
 		d = {
 			"Diagnostics",
 			["<Right>"] = {

@@ -1,6 +1,16 @@
-local opts = function()
-	local wk = require("which-key")
-	wk.register({
+local config = function()
+	local status_ok, wk = pcall(require, "which-key")
+	if not status_ok then
+		return
+	end
+
+	local setup = {
+		window = {
+			border = "single",
+		},
+	}
+
+	local mappings = {
 		f = {
 			name = "Files",
 			f = { "<cmd>FzfLua files<CR>", "find files" },
@@ -43,11 +53,16 @@ local opts = function()
 				"prev",
 			},
 		},
-	}, { prefix = "<leader>" })
+	}
+
+	local opts = { prefix = "<leader>" }
+
+	wk.setup(setup)
+	wk.register(mappings, opts)
 end
 
 return {
 	"folke/which-key.nvim",
 	lazy = false,
-	opts = opts,
+	config = config,
 }

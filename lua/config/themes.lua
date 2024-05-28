@@ -20,3 +20,4 @@ vim.api.nvim_set_hl(0, "SagaNormal", { bg = "#181826" })
 vim.api.nvim_set_hl(0, "SagaBorder", { fg = "#c8a6ff", bg = "#181826" })
 
 -- vim.api.nvim_set_hl(0, "")
+vim.api.nvim_set_hl(0, "WhichKeyBorder", { fg = "#c8a6ff" })

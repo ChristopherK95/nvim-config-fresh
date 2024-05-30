@@ -1,6 +1,6 @@
 return {
 	"nvimdev/guard.nvim",
-  lazy = false,
+	lazy = false,
 	dependencies = {
 		"nvimdev/guard-collection",
 	},
@@ -8,11 +8,12 @@ return {
 		local ft = require("guard.filetype")
 
 		ft("typescript,typescriptreact"):fmt("prettier")
-    ft('lua'):fmt('stylua')
+		ft("lua"):fmt("stylua")
+		ft("go"):fmt("gofmt")
 
-		require('guard').setup({
+		require("guard").setup({
 			fmt_on_save = false,
-      lsp_as_default_formatter = true,
+			lsp_as_default_formatter = true,
 		})
 	end,
 }

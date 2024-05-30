@@ -9,6 +9,10 @@ local config = function()
 		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 	end
 
+	local handlers = {
+		["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" }),
+	}
+
 	local on_attach = function(_, bufnr)
 		local opts = { noremap = true, silent = true, buffer = bufnr }
 
@@ -21,7 +25,10 @@ local config = function()
 		vim.keymap.set("n", "<leader>cr", "<cmd>Lspsaga rename<CR>", opts)
 		vim.keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 		vim.keymap.set("n", "<C-d>", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
-		vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
+		-- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
+		vim.keymap.set("n", "K", function()
+			vim.lsp.buf.hover()
+		end, opts)
 		vim.lsp.inlay_hint.enable(false)
 	end
 
@@ -32,6 +39,7 @@ local config = function()
 	lspconfig.gopls.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
+		handlers = handlers,
 		settings = {
 			gopls = {
 				["ui.inlayhint.hints"] = {
@@ -56,6 +64,7 @@ local config = function()
 	lspconfig.lua_ls.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
+		handlers = handlers,
 		settings = {
 			Lua = {
 				diagnostics = {
@@ -75,6 +84,7 @@ local config = function()
 	lspconfig.tsserver.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
+		handlers = handlers,
 		init_options = {
 			preferences = {
 				includeInlayParameterNameHints = "all",

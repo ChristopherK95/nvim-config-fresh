@@ -44,12 +44,12 @@ return {
 			},
 			window = {
 				completion = {
-					border = "none",
+					border = "single",
 					side_padding = 1,
 					winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:CmpSel,Search:None",
 				},
 				documentation = {
-					border = "none",
+					border = "single",
 					side_padding = 1,
 					winhighlight = "Normal:CmpNormal,FloatBorder:CmpBorder,CursorLine:CmpSel,Search:None",
 				},

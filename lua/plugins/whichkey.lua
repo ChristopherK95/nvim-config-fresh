@@ -53,6 +53,12 @@ local config = function()
 				"prev",
 			},
 		},
+		w = {
+			"Window splits",
+			h = { ":split<CR>", "h-split" },
+			v = { ":vsplit<CR>", "v-split" },
+		},
+		q = { ":q<CR>", "Quit" },
 	}
 
 	local opts = { prefix = "<leader>" }

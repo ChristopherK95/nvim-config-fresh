@@ -69,11 +69,12 @@ local config = function()
 			Lua = {
 				diagnostics = {
 					globals = { "vim" },
+					disable = { "missing-parameters", "missing-fields" },
 				},
 				workspace = {
 					library = {
-						[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-						[vim.fn.stdpath("config") .. "/lua/"] = true,
+						vim.fn.expand("$VIMRUNTIME/lua"),
+						vim.fn.stdpath("config") .. "nvim/lua/",
 					},
 				},
 			},

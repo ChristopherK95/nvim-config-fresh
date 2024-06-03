@@ -32,6 +32,7 @@ return {
 					title = { { " " .. "Files" .. " ", "FzfLuaTitle" } },
 					title_pos = "center",
 				},
+        rg_opts           = [[--color=never --files --hidden --follow -g "!{.git,node_modules}/*"]]
 			},
 			grep = {
 				rg_opts = "--sort-files --hidden --column --line-number --no-heading "

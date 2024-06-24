@@ -81,23 +81,10 @@ local config = function()
 		},
 	})
 
-	-- Typescript/Javascript
-	lspconfig.tsserver.setup({
+	lspconfig.vtsls.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 		handlers = handlers,
-		init_options = {
-			preferences = {
-				includeInlayParameterNameHints = "all",
-				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayVariableTypeHints = true,
-				includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayFunctionLikeReturnTypeHints = true,
-				includeInlayEnumMemberValueHints = true,
-			},
-		},
 		filetypes = {
 			"javascript",
 			"javascriptreact",
@@ -106,6 +93,32 @@ local config = function()
 		},
 		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "git"),
 	})
+
+	-- Typescript/Javascript
+	-- lspconfig.tsserver.setup({
+	-- 	on_attach = on_attach,
+	-- 	capabilities = capabilities,
+	-- 	handlers = handlers,
+	-- 	init_options = {
+	-- 		preferences = {
+	-- 			includeInlayParameterNameHints = "all",
+	-- 			includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+	-- 			includeInlayFunctionParameterTypeHints = true,
+	-- 			includeInlayVariableTypeHints = true,
+	-- 			includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+	-- 			includeInlayPropertyDeclarationTypeHints = true,
+	-- 			includeInlayFunctionLikeReturnTypeHints = true,
+	-- 			includeInlayEnumMemberValueHints = true,
+	-- 		},
+	-- 	},
+	-- 	filetypes = {
+	-- 		"javascript",
+	-- 		"javascriptreact",
+	-- 		"typescript",
+	-- 		"typescriptreact",
+	-- 	},
+	-- 	root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "git"),
+	-- })
 
 	-- JSON
 	lspconfig.jsonls.setup({

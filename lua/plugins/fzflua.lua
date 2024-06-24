@@ -13,16 +13,18 @@ return {
 			winopts = {
 				border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
 			},
-			fzf_opts = {
-				["--pointer"] = "❯",
-			},
+			-- fzf_opts = {
+			-- 	["--pointer"] = " ",
+			-- },
 			fzf_colors = {
-				["pointer"] = { "fg", "FzfLuaColorsPointer" },
+				-- ["pointer"] = { "fg", "FzfLuaColorsPointer" },
+        ["pointer"] = "-1",
 				["bg"] = { "bg", "FzfLuaColorsBg" },
 				["bg+"] = { "bg", "FzfLuaColorsBgSel" },
 				["fg"] = { "fg", "FzfLuaColorsFg" },
 				["fg+"] = { "fg", "FzfLuaColorsFgSel" },
-				["gutter"] = { "bg", "Normal" },
+				-- ["gutter"] = { "bg", "Normal" },
+				["gutter"] = "-1",
 				["prompt"] = { "fg", "FzfLuaColorsPrompt" },
 			},
 			files = {
@@ -32,7 +34,7 @@ return {
 					title = { { " " .. "Files" .. " ", "FzfLuaTitle" } },
 					title_pos = "center",
 				},
-        rg_opts           = [[--color=never --files --hidden --follow -g "!{.git,node_modules,build}/*"]]
+				rg_opts = [[--color=never --files --hidden --follow -g "!{.git,node_modules,build}/*"]],
 			},
 			grep = {
 				rg_opts = "--sort-files --hidden --column --line-number --no-heading "

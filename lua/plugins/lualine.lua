@@ -1,3 +1,5 @@
+local czs = require("czs")
+
 local theme = {
 	inactive = {
 		a = { fg = "white", bg = "transparent", gui = "bold" },
@@ -75,7 +77,18 @@ local config = function()
 					color = { bg = "transparent", fg = "white" },
 				},
 			},
-			lualine_x = {},
+			lualine_x = {
+				{
+					function()
+						if czs.display_results() then
+							local target, current, count = czs.output()
+							return string.format("/%s [%s/%s]", target, current, count)
+						else
+							return ""
+						end
+					end,
+				},
+			},
 			lualine_y = {
 				{
 					"progress",

@@ -22,3 +22,7 @@ vim.keymap.set("x", "<Space>p", '"_dP')
 vim.keymap.set("n", "<Space>y", '"+y')
 vim.keymap.set("v", "<Space>y", '"+y')
 vim.keymap.set("n", "<Space>Y", '"+Y')
+
+-- Maneuver quickfix list
+vim.keymap.set("n", "<C-[>", "<cmd>cp<CR>")
+vim.keymap.set("n", "<C-]>", "<cmd>cn<CR>")

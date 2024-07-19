@@ -131,7 +131,7 @@ local config = function()
 	})
 
 	-- CSS
-	lspconfig.cssls.setup({
+	lspconfig.css_variables.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 		filetypes = {

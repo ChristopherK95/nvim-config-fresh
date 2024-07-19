@@ -34,11 +34,11 @@ return {
 					title = { { " " .. "Files" .. " ", "FzfLuaTitle" } },
 					title_pos = "center",
 				},
-				rg_opts = [[--color=never --files --hidden --follow -g "!{.git,node_modules,build}/*"]],
+        fd_opts = "--color=never --files --hidden --follow -exclude \"node_modules\"",
 			},
 			grep = {
 				rg_opts = "--sort-files --hidden --column --line-number --no-heading "
-					.. "--color=always --smart-case -g '!{.git,node_modules}/*'",
+					.. "--color=always --smart-case -g '!{.git,node_modules}/'",
 			},
 		})
 	end,

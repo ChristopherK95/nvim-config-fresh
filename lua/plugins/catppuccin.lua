@@ -6,6 +6,7 @@ return {
 	init = function()
 		require("catppuccin").setup({
 			transparent_background = true,
+			-- transparent_background = false,
 			integration = {
 				cmp = true,
 				gitsigns = true,

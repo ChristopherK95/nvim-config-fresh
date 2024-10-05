@@ -65,8 +65,9 @@ return {
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
+				{ name = "nvim_lsp_signature_help" },
 				{ name = "luasnip" },
-				-- { name = "buffer" },
+				{ name = "buffer" },
 				{ name = "path" },
 			}),
 			formatting = {
@@ -80,6 +81,8 @@ return {
 		})
 	end,
 	dependencies = {
+		{ "hrsh7th/cmp-nvim-lsp-signature-help" },
+		{ "hrsh7th/cmp-path" },
 		"onsails/lspkind.nvim",
 		{
 			"L3MON4D3/LuaSnip",

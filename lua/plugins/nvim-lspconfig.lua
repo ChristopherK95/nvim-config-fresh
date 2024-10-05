@@ -35,6 +35,32 @@ local config = function()
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
+	lspconfig.gdscript.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		handlers = handlers,
+	})
+
+  -- Odin
+  lspconfig.ols.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		handlers = handlers,
+		filetypes = {
+			"odin",
+		},
+  })
+
+	-- Zig
+	lspconfig.zls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		handlers = handlers,
+		filetypes = {
+			"zig",
+		},
+	})
+
 	-- Go
 	lspconfig.gopls.setup({
 		capabilities = capabilities,
@@ -58,6 +84,10 @@ local config = function()
 	lspconfig.rust_analyzer.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
+		handlers = handlers,
+		root_dir = function()
+			return vim.fn.getcwd()
+		end,
 	})
 
 	-- Lua
@@ -81,36 +111,10 @@ local config = function()
 		},
 	})
 
-	lspconfig.vtsls.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-		handlers = handlers,
-		filetypes = {
-			"javascript",
-			"javascriptreact",
-			"typescript",
-			"typescriptreact",
-		},
-		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "git"),
-	})
-
-	-- Typescript/Javascript
-	-- lspconfig.tsserver.setup({
+	-- lspconfig.vtsls.setup({
 	-- 	on_attach = on_attach,
 	-- 	capabilities = capabilities,
 	-- 	handlers = handlers,
-	-- 	init_options = {
-	-- 		preferences = {
-	-- 			includeInlayParameterNameHints = "all",
-	-- 			includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-	-- 			includeInlayFunctionParameterTypeHints = true,
-	-- 			includeInlayVariableTypeHints = true,
-	-- 			includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-	-- 			includeInlayPropertyDeclarationTypeHints = true,
-	-- 			includeInlayFunctionLikeReturnTypeHints = true,
-	-- 			includeInlayEnumMemberValueHints = true,
-	-- 		},
-	-- 	},
 	-- 	filetypes = {
 	-- 		"javascript",
 	-- 		"javascriptreact",
@@ -119,6 +123,48 @@ local config = function()
 	-- 	},
 	-- 	root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "git"),
 	-- })
+
+	lspconfig.eslint.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+		handlers = handlers,
+		cmd = { "vscode-eslint-language-server", "--stdio" },
+		filetypes = {
+			"typescript",
+			"typescriptreact",
+		},
+		settings = {
+			workingDirectory = { mode = "auto" },
+			lint = { enable = true },
+		},
+		root_dir = lspconfig.util.root_pattern(".eslintrc", "package.json"),
+	})
+
+	-- Typescript/Javascript
+	lspconfig.ts_ls.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+		handlers = handlers,
+		init_options = {
+			preferences = {
+				includeInlayParameterNameHints = "all",
+				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHints = true,
+				includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayEnumMemberValueHints = true,
+			},
+		},
+		filetypes = {
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact",
+		},
+		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "git"),
+	})
 
 	-- JSON
 	lspconfig.jsonls.setup({
@@ -131,7 +177,7 @@ local config = function()
 	})
 
 	-- CSS
-	lspconfig.css_variables.setup({
+	lspconfig.cssls.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 		filetypes = {

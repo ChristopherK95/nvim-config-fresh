@@ -7,7 +7,12 @@ keymap.set("v", ">", ">gv")
 vim.api.nvim_set_keymap("n", "<C-_>", "gcc", { noremap = false })
 vim.api.nvim_set_keymap("v", "<C-_>", "gcc", { noremap = false })
 
-vim.api.nvim_set_keymap("n", "<C-f>", "<cmd>GuardFmt<CR>", { noremap = false })
+vim.api.nvim_set_keymap(
+	"n",
+	"<C-f>",
+	"<cmd>lua require('conform').format({ async = true, lsp_format='fallback'})<CR>",
+	{ noremap = false }
+)
 
 -- Window maneuver
 vim.api.nvim_set_keymap("n", "<C-left>", "<C-w><left>", { silent = true })

@@ -19,7 +19,6 @@ return {
 		windows = {
 			autocomplete = {
 				border = "single",
-				draw = "reversed",
 			},
 		},
 		highlight = {

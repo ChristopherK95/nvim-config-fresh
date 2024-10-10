@@ -1,6 +1,6 @@
 local config = function()
 	require("neoconf").setup({})
-	local cmp_nvim_lsp = require("cmp_nvim_lsp")
+	-- local cmp_nvim_lsp = require("cmp_nvim_lsp")
 	local lspconfig = require("lspconfig")
 
 	local signs = { Error = " ", Warn = " ", Hint = " ", Info = "" }
@@ -33,7 +33,7 @@ local config = function()
 	end
 
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+	-- capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 	lspconfig.gdscript.setup({
 		capabilities = capabilities,
@@ -208,8 +208,8 @@ return {
 	dependencies = {
 		"windwp/nvim-autopairs",
 		"williamboman/mason.nvim",
-		"hrsh7th/nvim-cmp",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-nvim-lsp",
+		-- "hrsh7th/nvim-cmp",
+		-- "hrsh7th/cmp-buffer",
+		-- "hrsh7th/cmp-nvim-lsp",
 	},
 }

@@ -28,6 +28,7 @@ local kind_icons = {
 
 return {
 	"hrsh7th/nvim-cmp",
+  enable = false,
 	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")

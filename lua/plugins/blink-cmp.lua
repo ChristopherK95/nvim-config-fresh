@@ -15,10 +15,22 @@ return {
 		keymap = {
 			accept = "<Enter>",
 			show_documentation = "<Tab>",
+			hide_documentation = "<Tab>",
 		},
 		windows = {
 			autocomplete = {
 				border = "single",
+			},
+			documentation = {
+				border = "single",
+			},
+			signature_help = {
+				border = "single",
+			},
+		},
+		trigger = {
+			signature_help = {
+				enabled = true,
 			},
 		},
 		highlight = {
@@ -27,6 +39,7 @@ return {
 			-- will be removed in a future release, assuming themes add support
 			use_nvim_cmp_as_default = true,
 		},
+
 		-- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
 		-- adjusts spacing to ensure icons are aligned
 		nerd_font_variant = "normal",

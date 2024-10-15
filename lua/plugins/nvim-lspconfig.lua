@@ -41,15 +41,15 @@ local config = function()
 		handlers = handlers,
 	})
 
-  -- Odin
-  lspconfig.ols.setup({
+	-- Odin
+	lspconfig.ols.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
 		handlers = handlers,
 		filetypes = {
 			"odin",
 		},
-  })
+	})
 
 	-- Zig
 	lspconfig.zls.setup({

@@ -145,18 +145,6 @@ local config = function()
 		on_attach = on_attach,
 		capabilities = capabilities,
 		handlers = handlers,
-		init_options = {
-			preferences = {
-				includeInlayParameterNameHints = "all",
-				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayVariableTypeHints = true,
-				includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayFunctionLikeReturnTypeHints = true,
-				includeInlayEnumMemberValueHints = true,
-			},
-		},
 		filetypes = {
 			"javascript",
 			"javascriptreact",
@@ -200,11 +188,6 @@ return {
 	"neovim/nvim-lspconfig",
 	config = config,
 	lazy = false,
-	opt = {
-		inlay_hints = {
-			enabled = true,
-		},
-	},
 	dependencies = {
 		"windwp/nvim-autopairs",
 		"williamboman/mason.nvim",

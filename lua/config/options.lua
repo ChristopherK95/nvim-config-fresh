@@ -44,7 +44,7 @@ opt.guicursor = { "n-v-c-i:block" }
 opt.encoding = "UTF-8"
 
 vim.diagnostic.config({ virtual_text = false })
-vim.diagnostic.config({ update_in_insert = true })
+-- vim.diagnostic.config({ update_in_insert = true })
 
 vim.cmd("command! W w")
 vim.cmd("command! Q q")

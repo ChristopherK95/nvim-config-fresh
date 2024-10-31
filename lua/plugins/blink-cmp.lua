@@ -22,6 +22,8 @@ return {
 				border = "single",
 			},
 			documentation = {
+				auto_show = true,
+				auto_show_delay_ms = 100,
 				border = "single",
 			},
 			signature_help = {

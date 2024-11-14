@@ -41,15 +41,15 @@ local config = function()
 		handlers = handlers,
 	})
 
-  -- Odin
-  lspconfig.ols.setup({
+	-- Odin
+	lspconfig.ols.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
 		handlers = handlers,
 		filetypes = {
 			"odin",
 		},
-  })
+	})
 
 	-- Zig
 	lspconfig.zls.setup({
@@ -161,6 +161,16 @@ local config = function()
 		filetypes = {
 			"json",
 			"jsonc",
+		},
+	})
+
+	-- C
+	lspconfig.clangd.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+		filetypes = {
+			"c",
+			"c++",
 		},
 	})
 

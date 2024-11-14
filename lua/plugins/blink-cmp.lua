@@ -13,9 +13,11 @@ return {
 
 	opts = {
 		keymap = {
-			accept = "<Enter>",
-			show_documentation = "<Tab>",
-			hide_documentation = "<Tab>",
+			preset = "enter",
+			["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+			-- accept = "<Enter>",
+			-- show_documentation = "<Tab>",
+			-- hide_documentation = "<Tab>",
 		},
 		windows = {
 			autocomplete = {

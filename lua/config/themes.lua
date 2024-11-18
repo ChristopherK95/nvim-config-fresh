@@ -16,9 +16,20 @@ vim.api.nvim_set_hl(0, "CmpSel", { fg = "#000000", bg = "#a6e3a2" })
 
 vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#c8a6ff" })
 
-vim.api.nvim_set_hl(0, "SagaNormal", { bg = "#181826" })
-vim.api.nvim_set_hl(0, "SagaBorder", { fg = "#c8a6ff", bg = "#181826" })
+vim.api.nvim_set_hl(0, "SagaNormal", { bg = "#1B1E28" })
+vim.api.nvim_set_hl(0, "SagaBorder", { fg = "#c8a6ff", bg = "#1B1E28" })
 
--- vim.api.nvim_set_hl(0, "")
 vim.api.nvim_set_hl(0, "WhichKeyBorder", { fg = "#c8a6ff" })
 vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#c8a6ff" })
+
+-- Blink highlights
+vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "#1B1E28" })
+vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { bg = "#1B1E28" })
+vim.api.nvim_set_hl(0, "BlinkCmpDoc", { bg = "#1B1E28" })
+vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { bg = "#1B1E28" })
+vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelp", { bg = "#1B1E28" })
+vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelpBorder", { bg = "#1B1E28" })
+
+-- WhichKey highlights
+vim.api.nvim_set_hl(0, "WhichKeyBorder", { fg = "#c8a6ff" })
+vim.api.nvim_set_hl(0, "WhichKeyNormal", { bg = "#1B1E28" })

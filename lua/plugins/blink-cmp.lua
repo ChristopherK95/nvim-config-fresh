@@ -21,15 +21,15 @@ return {
 		},
 		windows = {
 			autocomplete = {
-				border = "single",
+				border = "rounded",
 			},
 			documentation = {
 				auto_show = true,
 				auto_show_delay_ms = 100,
-				border = "single",
+				border = "rounded",
 			},
 			signature_help = {
-				border = "single",
+				border = "rounded",
 			},
 		},
 		trigger = {

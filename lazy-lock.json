@@ -34,6 +34,7 @@
   "nvim-tundra": { "branch": "main", "commit": "374ec2e2075ebe699a20d29e0c141cf5113adf0c" },
   "nvim-web-devicons": { "branch": "master", "commit": "6b53401918a9033a41159d012160c5fb5eb249ae" },
   "oil.nvim": { "branch": "master", "commit": "0472d9296ace2d57769eb3e022a918803f096ea4" },
+  "onedark.nvim": { "branch": "master", "commit": "67a74c275d1116d575ab25485d1bfa6b2a9c38a6" },
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
   "poimandres.nvim": { "branch": "main", "commit": "a488957d803943a4201ac3b774913fcafa9e6b3a" },
   "startup.nvim": { "branch": "master", "commit": "9ca3b9a55f2f2196ef90b39a52029b46fdde5226" },

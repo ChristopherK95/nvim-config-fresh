@@ -38,9 +38,11 @@ return {
 	"folke/which-key.nvim",
 	event = "VeryLazy",
 	opts = {
+    ---@type false | "classic" | "modern" | "helix"
+    preset = 'modern',
 		spec = keys,
 		win = {
-			border = "single",
+			border = "rounded",
 		},
 	},
 }

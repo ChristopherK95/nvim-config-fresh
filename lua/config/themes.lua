@@ -24,9 +24,9 @@ vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#c8a6ff" })
 
 -- Blink highlights
 vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "#303542" })
-vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { bg = "#1B1E28" })
-vim.api.nvim_set_hl(0, "BlinkCmpDoc", { bg = "#1B1E28" })
-vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { bg = "#1B1E28" })
+vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { bg = "#303542", fg = "#ffffff" })
+vim.api.nvim_set_hl(0, "BlinkCmpDoc", { bg = "#303542" })
+vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { bg = "#1B1E28", fg = "#F7768E" })
 vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelp", { bg = "#1B1E28" })
 vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelpBorder", { bg = "#1B1E28" })
 

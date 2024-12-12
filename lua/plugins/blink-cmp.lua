@@ -19,6 +19,18 @@ return {
 			-- show_documentation = "<Tab>",
 			-- hide_documentation = "<Tab>",
 		},
+		completion = {
+			menu = {
+				border = "none",
+			},
+			documentation = {
+				window = {
+					auto_show = true,
+					auto_show_delay_ms = 100,
+					border = "rounded",
+				},
+			},
+		},
 		windows = {
 			autocomplete = {
 				border = "rounded",

@@ -3,7 +3,7 @@ local config = function()
 	-- local cmp_nvim_lsp = require("cmp_nvim_lsp")
 	local lspconfig = require("lspconfig")
 
-	local signs = { Error = " ", Warn = " ", Hint = " ", Info = "" }
+	local signs = { Error = "", Warn = "", Hint = " ", Info = "" }
 	for type, icon in pairs(signs) do
 		local hl = "DiagnosticSign" .. type
 		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
@@ -111,18 +111,18 @@ local config = function()
 		},
 	})
 
-	-- lspconfig.vtsls.setup({
-	-- 	on_attach = on_attach,
-	-- 	capabilities = capabilities,
-	-- 	handlers = handlers,
-	-- 	filetypes = {
-	-- 		"javascript",
-	-- 		"javascriptreact",
-	-- 		"typescript",
-	-- 		"typescriptreact",
-	-- 	},
-	-- 	root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "git"),
-	-- })
+	lspconfig.vtsls.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+		handlers = handlers,
+		filetypes = {
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact",
+		},
+		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "git"),
+	})
 
 	lspconfig.eslint.setup({
 		on_attach = on_attach,
@@ -141,30 +141,30 @@ local config = function()
 	})
 
 	-- Typescript/Javascript
-	lspconfig.ts_ls.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-		handlers = handlers,
-		init_options = {
-			preferences = {
-				includeInlayParameterNameHints = "all",
-				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayVariableTypeHints = true,
-				includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayFunctionLikeReturnTypeHints = true,
-				includeInlayEnumMemberValueHints = true,
-			},
-		},
-		filetypes = {
-			"javascript",
-			"javascriptreact",
-			"typescript",
-			"typescriptreact",
-		},
-		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "git"),
-	})
+	-- lspconfig.ts_ls.setup({
+	-- 	on_attach = on_attach,
+	-- 	capabilities = capabilities,
+	-- 	handlers = handlers,
+	-- 	init_options = {
+	-- 		preferences = {
+	-- 			includeInlayParameterNameHints = "all",
+	-- 			includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+	-- 			includeInlayFunctionParameterTypeHints = true,
+	-- 			includeInlayVariableTypeHints = true,
+	-- 			includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+	-- 			includeInlayPropertyDeclarationTypeHints = true,
+	-- 			includeInlayFunctionLikeReturnTypeHints = true,
+	-- 			includeInlayEnumMemberValueHints = true,
+	-- 		},
+	-- 	},
+	-- 	filetypes = {
+	-- 		"javascript",
+	-- 		"javascriptreact",
+	-- 		"typescript",
+	-- 		"typescriptreact",
+	-- 	},
+	-- 	root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "git"),
+	-- })
 
 	-- JSON
 	lspconfig.jsonls.setup({
@@ -180,6 +180,21 @@ local config = function()
 	lspconfig.clangd.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
+		opt = {
+			root_dir = function(fname)
+				return require("lspconfig.util").root_pattern(
+					"Makefile",
+					"configure.ac",
+					"configure.in",
+					"config.h.in",
+					"meson.build",
+					"meson_options.txt",
+					"build.ninja"
+				)(fname) or require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt")(
+					fname
+				) or require("lspconfig.util").find_git_ancestor(fname)
+			end,
+		},
 		filetypes = {
 			"c",
 			"cpp",

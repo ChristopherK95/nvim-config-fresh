@@ -23,7 +23,7 @@ vim.api.nvim_set_hl(0, "WhichKeyBorder", { fg = "#c8a6ff" })
 vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#c8a6ff" })
 
 -- Blink highlights
-vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "#1B1E28" })
+vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "#303542" })
 vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { bg = "#1B1E28" })
 vim.api.nvim_set_hl(0, "BlinkCmpDoc", { bg = "#1B1E28" })
 vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { bg = "#1B1E28" })

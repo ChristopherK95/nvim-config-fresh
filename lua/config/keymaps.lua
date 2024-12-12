@@ -33,3 +33,4 @@ vim.keymap.set("n", "<C-[>", "<cmd>cp<CR>")
 vim.keymap.set("n", "<C-]>", "<cmd>cn<CR>")
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
+vim.keymap.set("n", "<C-c>", "<Esc>")

@@ -11,14 +11,21 @@ return {
 			},
 			file_ignore_patterns = { "%.svg$" },
 			winopts = {
-				border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
+				-- border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
+				border = { " ", " ", " ", "┃", " ", " ", " ", " " },
+				row = 1,
+				width = 1,
+				height = 0.55,
+				preview = {
+					border = { " ", " ", " ", " ", " ", " ", " ", "" },
+				},
 			},
 			-- fzf_opts = {
 			-- 	["--pointer"] = " ",
 			-- },
 			fzf_colors = {
 				-- ["pointer"] = { "fg", "FzfLuaColorsPointer" },
-        ["pointer"] = "-1",
+				["pointer"] = "-1",
 				["bg"] = { "bg", "FzfLuaColorsBg" },
 				["bg+"] = { "bg", "FzfLuaColorsBgSel" },
 				["fg"] = { "fg", "FzfLuaColorsFg" },
@@ -34,7 +41,10 @@ return {
 					title = { { " " .. "Files" .. " ", "FzfLuaTitle" } },
 					title_pos = "center",
 				},
-        fd_opts = "--color never --type f --hidden --follow --exclude node_modules --exclude build/ --exclude .git",
+				fd_opts = "--color never --type f --hidden --follow --exclude node_modules --exclude build/ --exclude .git",
+			},
+			git_status = {
+				fzf_opts = {["--border"] = "noborder"},
 			},
 			grep = {
 				rg_opts = "--sort-files --hidden --column --line-number --no-heading "

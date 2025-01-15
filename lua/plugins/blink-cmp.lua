@@ -15,55 +15,29 @@ return {
 		keymap = {
 			preset = "enter",
 			["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+      -- ['<Tab>'] = {'snippet_forward'},
+      -- ['<S-Tab>'] = {'snippet_backward'}
 			-- accept = "<Enter>",
 			-- show_documentation = "<Tab>",
 			-- hide_documentation = "<Tab>",
 		},
 		completion = {
+			list = {
+				selection = { preselect = false },
+			},
 			menu = {
 				border = "none",
+        auto_show = function (ctx)
+          return ctx.mode ~= 'cmdline'
+        end
 			},
 			documentation = {
+				auto_show_delay_ms = 100,
+				auto_show = true,
 				window = {
-					auto_show = true,
-					auto_show_delay_ms = 100,
-					border = "rounded",
+					border = "none",
 				},
 			},
 		},
-		windows = {
-			autocomplete = {
-				border = "rounded",
-			},
-			documentation = {
-				auto_show = true,
-				auto_show_delay_ms = 100,
-				border = "rounded",
-			},
-			signature_help = {
-				border = "rounded",
-			},
-		},
-		trigger = {
-			signature_help = {
-				enabled = true,
-			},
-		},
-		highlight = {
-			-- sets the fallback highlight groups to nvim-cmp's highlight groups
-			-- useful for when your theme doesn't support blink.cmp
-			-- will be removed in a future release, assuming themes add support
-			use_nvim_cmp_as_default = true,
-		},
-
-		-- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-		-- adjusts spacing to ensure icons are aligned
-		nerd_font_variant = "normal",
-
-		-- experimental auto-brackets support
-		-- accept = { auto_brackets = { enabled = true } }
-
-		-- experimental signature help support
-		-- trigger = { signature_help = { enabled = true } }
 	},
 }

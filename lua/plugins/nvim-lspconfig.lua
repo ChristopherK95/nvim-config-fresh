@@ -111,18 +111,18 @@ local config = function()
 		},
 	})
 
-	-- lspconfig.vtsls.setup({
-	-- 	on_attach = on_attach,
-	-- 	capabilities = capabilities,
-	-- 	handlers = handlers,
-	-- 	filetypes = {
-	-- 		"javascript",
-	-- 		"javascriptreact",
-	-- 		"typescript",
-	-- 		"typescriptreact",
-	-- 	},
-	-- 	root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "git"),
-	-- })
+	lspconfig.vtsls.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+		handlers = handlers,
+		filetypes = {
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact",
+		},
+		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "git"),
+	})
 
 	lspconfig.eslint.setup({
 		on_attach = on_attach,
@@ -140,19 +140,19 @@ local config = function()
 		root_dir = lspconfig.util.root_pattern(".eslintrc", "package.json"),
 	})
 
-	-- Typescript/Javascript
-	lspconfig.ts_ls.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-		handlers = handlers,
-		filetypes = {
-			"javascript",
-			"javascriptreact",
-			"typescript",
-			"typescriptreact",
-		},
-		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "git"),
-	})
+	-- -- Typescript/Javascript
+	-- lspconfig.ts_ls.setup({
+	-- 	on_attach = on_attach,
+	-- 	capabilities = capabilities,
+	-- 	handlers = handlers,
+	-- 	filetypes = {
+	-- 		"javascript",
+	-- 		"javascriptreact",
+	-- 		"typescript",
+	-- 		"typescriptreact",
+	-- 	},
+	-- 	root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "git"),
+	-- })
 
 	-- JSON
 	lspconfig.jsonls.setup({

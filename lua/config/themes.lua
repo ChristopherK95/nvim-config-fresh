@@ -18,3 +18,6 @@ vim.api.nvim_set_hl(0, "SagaBorder", { fg = "#c8a6ff", bg = "#181826" })
 
 vim.api.nvim_set_hl(0, "WhichKeyBorder", { fg = "#c8a6ff" })
 vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#c8a6ff" })
+
+vim.api.nvim_set_hl(0, "IblIndent", { fg = "#6e7380" })
+vim.api.nvim_set_hl(0, "IblScope", { fg = "#6e7380" })

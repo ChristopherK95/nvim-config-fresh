@@ -124,21 +124,21 @@ local config = function()
 		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "git"),
 	})
 
-	lspconfig.eslint.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-		handlers = handlers,
-		cmd = { "vscode-eslint-language-server", "--stdio" },
-		filetypes = {
-			"typescript",
-			"typescriptreact",
-		},
-		settings = {
-			workingDirectory = { mode = "auto" },
-			lint = { enable = true },
-		},
-		root_dir = lspconfig.util.root_pattern(".eslintrc", "package.json"),
-	})
+	-- lspconfig.eslint.setup({
+	-- 	on_attach = on_attach,
+	-- 	capabilities = capabilities,
+	-- 	handlers = handlers,
+	-- 	cmd = { "vscode-eslint-language-server", "--stdio" },
+	-- 	filetypes = {
+	-- 		"typescript",
+	-- 		"typescriptreact",
+	-- 	},
+	-- 	settings = {
+	-- 		workingDirectories = { mode = "auto" },
+	-- 		lint = { enable = true },
+	-- 	},
+	-- 	root_dir = lspconfig.util.root_pattern(".eslintrc.js", ".eslintrc", ".git", "package.json"),
+	-- })
 
 	-- -- Typescript/Javascript
 	-- lspconfig.ts_ls.setup({

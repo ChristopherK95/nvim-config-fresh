@@ -77,7 +77,8 @@ local config = function()
 					color = { bg = "transparent", fg = "white" },
 				},
 			},
-			lualine_x = {
+			lualine_x = {},
+			lualine_y = {
 				{
 					function()
 						if czs.display_results() then
@@ -87,24 +88,31 @@ local config = function()
 							return ""
 						end
 					end,
+					color = { fg = "white" },
 				},
 			},
-			lualine_y = {
+			lualine_z = {
 				{
 					"progress",
 					color = { bg = "transparent", fg = "white" },
 				},
-				{ "location", color = { bg = "transparent", fg = "white" } },
-			},
-			lualine_z = {
 				{
-					function()
-						return "▊"
+					"location",
+					color = { bg = "#e68da5", fg = "#1b1d26", gui = "bold" },
+					fmt = function(str)
+						return " " .. str
 					end,
-					-- color = { bg = "transparent", fg = "#a4b9f0" },
-					padding = { left = 1, right = 0 },
 				},
 			},
+			-- lualine_z = {
+			-- 	{
+			-- 		function()
+			-- 			return ""
+			-- 		end,
+			-- 		color = { bg = "#e68da5", fg = "white" },
+			-- 		padding = { left = 1, right = 0 },
+			-- 	},
+			-- },
 		},
 	})
 end

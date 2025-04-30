@@ -26,9 +26,7 @@ local config = function()
 		vim.keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
 		vim.keymap.set("n", "<C-d>", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
 		-- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-		vim.keymap.set("n", "K", function()
-			vim.lsp.buf.hover()
-		end, opts)
+		vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
 		vim.lsp.inlay_hint.enable(false)
 	end
 
@@ -199,7 +197,7 @@ return {
 	config = config,
 	lazy = false,
 	dependencies = {
-    "saghen/blink.cmp",
+		"saghen/blink.cmp",
 		"windwp/nvim-autopairs",
 		"williamboman/mason.nvim",
 		-- "hrsh7th/nvim-cmp",

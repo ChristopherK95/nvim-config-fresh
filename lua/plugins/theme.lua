@@ -1,0 +1,68 @@
+-- return {
+--   "wnkz/monoglow.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   opts = {},
+--   init = function()
+--     vim.cmd("colorscheme monoglow")
+--   end,
+-- }
+
+-- return {
+-- 	"olivercederborg/poimandres.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	config = function()
+-- 		require("poimandres").setup({
+-- 			-- leave this setup function empty for default config
+-- 			-- or refer to the configuration section
+-- 			-- for configuration options
+-- 			disable_background = false, -- disable background
+-- 			disable_float_background = true -- disable background for floats
+-- 		})
+-- 	end,
+--
+-- 	-- optionally set the colorscheme within lazy config
+-- 	init = function()
+-- 		vim.cmd("colorscheme poimandres")
+-- 	end,
+-- }
+
+-- return {
+-- 	"catppuccin/nvim",
+-- 	name = "catppuccin",
+-- 	priority = 1000,
+-- 	lazy = false,
+-- 	init = function()
+-- 		require("catppuccin").setup({
+-- 			transparent_background = true,
+-- 			-- transparent_background = false,
+-- 			integration = {
+-- 				cmp = true,
+-- 				gitsigns = true,
+-- 				lualine = true,
+-- 			},
+-- 		})
+-- 		-- vim.cmd("colorscheme catppuccin")
+-- 	end,
+-- }
+
+return {
+  "dgox16/oldworld.nvim",
+  lazy = false,
+  priority = 1000,
+  opts = {
+    variant = "default",
+    styles = {
+      booleans = { italic = true, bold = true },
+    },
+    integrations = {
+    },
+    highlight_overrides = {
+      -- Comment = { bg = "#ff0000" }
+    }
+  },
+  init = function()
+    vim.cmd.colorscheme("oldworld")
+  end
+}

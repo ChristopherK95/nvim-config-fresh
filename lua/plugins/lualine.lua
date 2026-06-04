@@ -35,6 +35,13 @@ local theme = {
 	},
 }
 
+local diff_source = function()
+	local gitsigns = vim.b.gitsigns_status_dict
+	if gitsigns then
+		return { added = gitsigns.added, modified = gitsigns.changed, removed = gitsigns.removed }
+	end
+end
+
 local config = function()
 	-- vim.api.nvim_set_hl(0, 'LuaLineDiffAdd', {fg='#7aff73', bg='#45475a'})
 	-- vim.api.nvim_set_hl(0, 'LuaLineDiffChange', {fg='#ffef61', bg='#45475a'})
@@ -43,7 +50,7 @@ local config = function()
 	require("lualine").setup({
 		options = {
 			theme = theme,
-			globalstatus = true,
+			globalstatus = false,
 			component_separators = { left = "", right = "" },
 			section_separators = { left = "", right = "" },
 		},
@@ -64,11 +71,8 @@ local config = function()
 			},
 			lualine_c = {
 				{
-					"branch",
-					color = { bg = "transparent", fg = "#c391f2" },
-				},
-				{
 					"diff",
+					source = diff_source,
 					symbols = { added = " ", modified = " ", removed = " " },
 					color = { bg = "transparent", fg = "white" },
 				},
@@ -113,6 +117,47 @@ local config = function()
 			-- 		padding = { left = 1, right = 0 },
 			-- 	},
 			-- },
+		},
+		inactive_sections = {
+			lualine_a = {
+				{
+					function()
+						return " "
+					end,
+					padding = { left = 0, right = 1 },
+				},
+			},
+			lualine_b = {
+				{ "filetype", icon_only = true, padding = { left = 1, right = 0 } },
+				{ "filename", color = { bg = "transparent", fg = "#9be0b9" }, padding = { left = 0, right = 1 } },
+			},
+			lualine_c = {
+				{
+					"diff",
+					symbols = { added = " ", modified = " ", removed = " " },
+					source = diff_source,
+					color = { bg = "transparent", fg = "white" },
+				},
+				{
+					"diagnostics",
+					color = { bg = "transparent", fg = "white" },
+				},
+			},
+			lualine_x = {},
+			lualine_y = {},
+			lualine_z = {
+				{
+					"progress",
+					color = { bg = "transparent", fg = "white" },
+				},
+				{
+					"location",
+					color = { bg = "#e68da5", fg = "#1b1d26", gui = "bold" },
+					fmt = function(str)
+						return " "  .. str
+					end,
+				},
+			},
 		},
 	})
 end

@@ -38,7 +38,7 @@ opt.splitbelow = true
 opt.autochdir = false
 opt.iskeyword:append("-")
 opt.mouse:append("a")
-opt.clipboard:append("unnamedplus")
+opt.clipboard = "unnamedplus"
 opt.modifiable = true
 opt.guicursor = { "n-v-c-i:block" }
 opt.encoding = "UTF-8"
@@ -49,3 +49,11 @@ vim.diagnostic.config({ virtual_text = false })
 vim.cmd("command! W w")
 vim.cmd("command! Q q")
 vim.cmd("command! Qa qa")
+
+-- Open quickfix list as a vertical split
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    vim.cmd("wincmd L")
+  end,
+})

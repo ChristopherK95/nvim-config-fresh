@@ -9,15 +9,27 @@ return {
       defaults = {
         formatter = "path.filename_first",
       },
-      file_ignore_patterns = { "%.svg$" },
       winopts = {
         preview = {
           border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
+          layout = "horizontal",
+          horizontal = "right:50%",
         },
         border = { "┏", "━", "┓", "┃", "┛", "━", "┗", "┃" },
         row = 1,
         width = 1,
-        height = 0.55
+        height = 0.85
+      },
+      previewers = {
+        builtin = {
+          extensions = {
+            ["png"] = { "chafa", "--colors=full", "--color-extractor=average", "--symbols=block+border+extra", "{file}" },
+            ["jpg"] = { "chafa", "--colors=full", "--color-extractor=average", "--symbols=block+border+extra", "{file}" },
+            ["jpeg"] = { "chafa", "--colors=full", "--color-extractor=average", "--symbols=block+border+extra", "{file}" },
+            ["gif"] = { "chafa", "--colors=full", "--color-extractor=average", "--symbols=block+border+extra", "{file}" },
+            ["webp"] = { "chafa", "--colors=full", "--color-extractor=average", "--symbols=block+border+extra", "{file}" },
+          },
+        },
       },
       -- fzf_opts = {
       -- 	["--pointer"] = " ",

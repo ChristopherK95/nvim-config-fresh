@@ -47,22 +47,24 @@
 -- 	end,
 -- }
 
-return {
-  "dgox16/oldworld.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {
-    variant = "default",
-    styles = {
-      booleans = { italic = true, bold = true },
-    },
-    integrations = {
-    },
-    highlight_overrides = {
-      -- Comment = { bg = "#ff0000" }
-    }
-  },
-  init = function()
-    vim.cmd.colorscheme("oldworld")
-  end
-}
+-- return {
+--   "dgox16/oldworld.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   opts = {
+--     variant = "default",
+--     styles = {
+--       booleans = { italic = true, bold = true },
+--     },
+--     integrations = {
+--     },
+--     highlight_overrides = {
+--       -- Comment = { bg = "#ff0000" }
+--     }
+--   },
+--   init = function()
+--     vim.cmd.colorscheme("oldworld")
+--   end
+-- }
+
+return {}

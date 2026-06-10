@@ -2,36 +2,34 @@ local czs = require("czs")
 
 local theme = {
 	inactive = {
-		a = { fg = "white", bg = "transparent", gui = "bold" },
-		b = { fg = "white", bg = "transparent" },
-		c = { fg = "white", bg = "transparent" },
+		a = { fg = "#d3c6aa", bg = "transparent", gui = "bold" },
+		b = { fg = "#d3c6aa", bg = "transparent" },
+		c = { fg = "#d3c6aa", bg = "transparent" },
 	},
 	visual = {
-		a = { fg = "#C678DD", bg = "transparent", gui = "bold" },
-		b = { fg = "white", bg = "transparent" },
-		c = { fg = "white", bg = "transparent" },
+		a = { fg = "#d699b6", bg = "transparent", gui = "bold" },
+		b = { fg = "#d3c6aa", bg = "transparent" },
+		c = { fg = "#d3c6aa", bg = "transparent" },
 	},
 	replace = {
-		a = { fg = "white", bg = "transparent", gui = "bold" },
-		b = { fg = "white", bg = "transparent" },
-		c = { fg = "white", bg = "transparent" },
+		a = { fg = "#e69875", bg = "transparent", gui = "bold" },
+		b = { fg = "#d3c6aa", bg = "transparent" },
+		c = { fg = "#d3c6aa", bg = "transparent" },
 	},
 	normal = {
-		a = { fg = "#61AFEF", bg = "transparent", gui = "bold" },
-		-- a = { fg = "#282C34", bg = "#61AFEF", gui = "bold" },
-		b = { fg = "white", bg = "transparent" },
-		c = { fg = "white", bg = "transparent" },
+		a = { fg = "#7fbbb3", bg = "transparent", gui = "bold" },
+		b = { fg = "#d3c6aa", bg = "transparent" },
+		c = { fg = "#d3c6aa", bg = "transparent" },
 	},
 	insert = {
-		a = { fg = "#98C379", bg = "transparent", gui = "bold" },
-		-- a = { fg = "#282C34", bg = "#98C379", gui = "bold" },
-		b = { fg = "white", bg = "transparent" },
-		c = { fg = "white", bg = "transparent" },
+		a = { fg = "#a7c080", bg = "transparent", gui = "bold" },
+		b = { fg = "#d3c6aa", bg = "transparent" },
+		c = { fg = "#d3c6aa", bg = "transparent" },
 	},
 	command = {
-		a = { fg = "#ff6e5e", bg = "transparent", gui = "bold" },
-		b = { fg = "white", bg = "transparent" },
-		c = { fg = "white", bg = "transparent" },
+		a = { fg = "#e67e80", bg = "transparent", gui = "bold" },
+		b = { fg = "#d3c6aa", bg = "transparent" },
+		c = { fg = "#d3c6aa", bg = "transparent" },
 	},
 }
 
@@ -67,18 +65,18 @@ local config = function()
 			},
 			lualine_b = {
 				{ "filetype", icon_only = true, padding = { left = 1, right = 0 } },
-				{ "filename", color = { bg = "transparent", fg = "#9be0b9" }, padding = { left = 0, right = 1 } },
+				{ "filename", color = { bg = "transparent", fg = "#d3c6aa" }, padding = { left = 0, right = 1 } },
 			},
 			lualine_c = {
 				{
 					"diff",
 					source = diff_source,
 					symbols = { added = " ", modified = " ", removed = " " },
-					color = { bg = "transparent", fg = "white" },
+					color = { bg = "transparent", fg = "#d3c6aa" },
 				},
 				{
 					"diagnostics",
-					color = { bg = "transparent", fg = "white" },
+					color = { bg = "transparent", fg = "#d3c6aa" },
 				},
 			},
 			lualine_x = {},
@@ -92,17 +90,17 @@ local config = function()
 							return ""
 						end
 					end,
-					color = { fg = "white" },
+					color = { fg = "#d3c6aa" },
 				},
 			},
 			lualine_z = {
 				{
 					"progress",
-					color = { bg = "transparent", fg = "white" },
+					color = { bg = "transparent", fg = "#d3c6aa" },
 				},
 				{
 					"location",
-					color = { bg = "#e68da5", fg = "#1b1d26", gui = "bold" },
+					color = { bg = "#e67e80", fg = "#272e33", gui = "bold" },
 					fmt = function(str)
 						return " " .. str
 					end,
@@ -129,18 +127,18 @@ local config = function()
 			},
 			lualine_b = {
 				{ "filetype", icon_only = true, padding = { left = 1, right = 0 } },
-				{ "filename", color = { bg = "transparent", fg = "#9be0b9" }, padding = { left = 0, right = 1 } },
+				{ "filename", color = { bg = "transparent", fg = "#d3c6aa" }, padding = { left = 0, right = 1 } },
 			},
 			lualine_c = {
 				{
 					"diff",
 					symbols = { added = " ", modified = " ", removed = " " },
 					source = diff_source,
-					color = { bg = "transparent", fg = "white" },
+					color = { bg = "transparent", fg = "#d3c6aa" },
 				},
 				{
 					"diagnostics",
-					color = { bg = "transparent", fg = "white" },
+					color = { bg = "transparent", fg = "#d3c6aa" },
 				},
 			},
 			lualine_x = {},
@@ -148,11 +146,11 @@ local config = function()
 			lualine_z = {
 				{
 					"progress",
-					color = { bg = "transparent", fg = "white" },
+					color = { bg = "transparent", fg = "#d3c6aa" },
 				},
 				{
 					"location",
-					color = { bg = "#e68da5", fg = "#1b1d26", gui = "bold" },
+					color = { bg = "#e67e80", fg = "#272e33", gui = "bold" },
 					fmt = function(str)
 						return " "  .. str
 					end,

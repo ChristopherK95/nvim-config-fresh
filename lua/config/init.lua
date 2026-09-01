@@ -22,7 +22,7 @@ local opts = {
 		lazy = true, -- should plugins be lazy-loaded?
 	},
 	install = {
-		colorscheme = { "catppuccin" },
+		colorscheme = { "oldworld" },
 	},
 	rtp = {
 		disabled_plugins = {
